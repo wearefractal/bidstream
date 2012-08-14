@@ -1,2 +1,16 @@
-center
-  h1 new app
+#auction
+  h1 ${root.auction.title}
+  img(src='${root.auction.image_url}')
+
+  ul
+   li(each-bid='${root.auction.bids}')
+    span ${bid.name}
+    span  - 
+    span ${bid.bid}
+
+#placebid
+  form.well
+    h2 Place bid
+    input#bidder.span3(type="text", placeholder="Name")
+    input#bid(type="text", placeholder="Bid")
+    button#placebtn.btn Place bid

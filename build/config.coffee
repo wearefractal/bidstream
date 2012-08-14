@@ -13,6 +13,3 @@ module.exports = app =
     npmBin:   path.resolve './node_modules/.bin'
   web:
     port: process.env.PORT or 8080
-
-app.mongo = 
-  host: "mongodb://#{process.env.MONGO or 'localhost:27017'}/#{app.name}"

@@ -13,6 +13,8 @@ gruntConfig =
     jaded: 
       # -r for rivets binding
       command: "#{app.paths.npmBin}/jaded -dra -i ./app/web/client/templates -o ./app/web/public/templates"
+    static:
+      command: "cp #{app.paths.client}/index.html #{app.paths.public} && cp #{app.paths.client}/js/vendor/*.js #{app.paths.public}/js/vendor && cp -R #{app.paths.client}/css/* #{app.paths.public}/css && cp -R #{app.paths.client}/img/* #{app.paths.public}/img"
 
   coffee:
     app:
@@ -21,9 +23,9 @@ gruntConfig =
       options:
         bare: true
 
-    services:
-      src: [ "#{app.paths.client}/js/services/*.coffee" ]
-      dest:  "#{app.paths.public}/js/services"
+    routes:
+      src: [ "#{app.paths.client}/js/routes/*.coffee" ]
+      dest:  "#{app.paths.public}/js/routes"
       options:
         bare: true
 
@@ -51,18 +53,21 @@ gruntConfig =
 
   watch:
     index:
-      files: "#{app.paths.public}/index.html"
-      tasks: "reload"
+      files: "#{app.paths.client}/index.html"
+      tasks: "exec:static reload"
+
+    vendor:
+      files: "#{app.paths.client}/js/vendor/*.js"
+      tasks: "exec:static reload"
 
     # templates
-    
     jaded:
       files: "#{app.paths.client}/templates/*.jade"
       tasks: "exec:jaded reload"
 
     coffee:
       files: [ "<config:coffee.app.src>",
-               "<config:coffee.services.src>",
+               "<config:coffee.routes.src>",
                "<config:coffee.vendor.src>",  
                "<config:coffee.myTasks.src>" ]
       tasks: "coffee reload"    
@@ -84,7 +89,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-exec"
 
   ## default 
-  grunt.registerTask "default", "exec:jaded lint test coffee reload start watch"
+  grunt.registerTask "default", "exec:static exec:jaded lint test coffee reload start watch"
 
   ## start 
   grunt.registerTask "start", "start up servers", ->

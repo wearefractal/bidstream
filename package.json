@@ -9,9 +9,8 @@
 
   "dependencies": {
     "coffee-script": "*",
-    "mongoose": "*",
     "connect": "*",
-    "vein": "*",
+    "warlock": "*",
     "async": "*"
   },
 

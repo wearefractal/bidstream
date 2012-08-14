@@ -1,28 +1,36 @@
 
-define(function() {
+define(["app/lock"], function(lock) {
   rivets.configure({
     adapter: {
-      subscribe: function(obj, keypath, callback) {
-        console.log("sub");
-        return console.log(obj, keypath);
+      subscribe: function(o, kp, cb) {
+        return lock.on('sync', function(r) {
+          return cb(r[kp.replace(/,/g, '.')]);
+        });
       },
-      read: function(obj, keypath) {
-        console.log("read");
-        return console.log(obj, keypath);
+      read: function(o, kp) {
+        return o[kp.replace(/,/g, '.')];
       },
-      publish: function(obj, keypath, value) {
-        console.log("pub");
-        return console.log(obj, keypath, value);
+      publish: function(o, kp, val) {
+        return lock.atomic(function() {
+          this.set(kp.replace(/,/g, '.'), val);
+          return this.done();
+        }).run();
       }
     }
   });
   return rivets.configure({
     formatters: {
+      currency: function(value) {
+        return v;
+      },
+      seconds: function(value) {
+        return v + " seconds";
+      },
       orBlank: function(val) {
-        return val || "";
+        return v || "";
       },
       orZero: function(val) {
-        return val || 0;
+        return v || 0;
       }
     }
   });

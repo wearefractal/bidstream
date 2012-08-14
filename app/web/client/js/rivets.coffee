@@ -1,17 +1,19 @@
-define ->
+define ["app/lock"], (lock)->
   rivets.configure 
     adapter:
-      subscribe: (obj, keypath, callback) ->
-        console.log "sub"
-        console.log obj, keypath
-      read: (obj, keypath) ->
-        console.log "read"
-        console.log obj, keypath
-      publish: (obj, keypath, value) ->
-        console.log "pub"            
-        console.log obj, keypath, value            
+      subscribe: (o, kp, cb) ->
+        lock.on 'sync', (r) -> cb r[kp.replace(/,/g,'.')]
+      #unsubscribe: (o, kp, cb) -> o.unwatch kp.replace(/,/g,'.'); cb()
+      read: (o, kp) -> o[kp.replace(/,/g,'.')]
+      publish: (o, kp, val) -> 
+        lock.atomic(->
+          @set kp.replace(/,/g,'.'), val
+          @done()
+        ).run()
 
-  rivets.configure
-  	formatters:
-      orBlank: (val) -> val or ""
-      orZero: (val) -> val or 0
+  rivets.configure 
+    formatters:
+      currency: (value) -> v
+      seconds: (value) -> v + " seconds"
+      orBlank: (val) -> v or ""
+      orZero: (val) -> v or 0
