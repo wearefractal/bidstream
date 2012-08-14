@@ -7,6 +7,9 @@ define(["app/lock"], function(lock) {
           return cb(r[kp.replace(/,/g, '.')]);
         });
       },
+      unsubscribe: function(o, kp, cb) {
+        return cb();
+      },
       read: function(o, kp) {
         return o[kp.replace(/,/g, '.')];
       },

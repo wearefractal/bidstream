@@ -2,7 +2,9 @@
 define(["app/lock"], function(lock) {
   return function(_, index) {
     return lock.ready(function() {
-      index('#main', lock);
+      index('#main', {
+        root: lock.root
+      });
       return $('#placebtn').click(function(e) {
         var name, num;
         e.preventDefault();
@@ -14,15 +16,11 @@ define(["app/lock"], function(lock) {
         if (!(name.length > 0)) {
           return;
         }
-        console.log(name, num);
         return lock.atomic(function() {
-          var newbids;
-          newbids = this.get('auction.bids');
-          newbids.shift({
+          this.unshift('auction.bids', {
             name: name,
             bid: num
           });
-          this.set('auction.bids', newbids);
           return this.done();
         }).run();
       });

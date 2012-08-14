@@ -3,9 +3,9 @@ define ["app/lock"], (lock)->
     adapter:
       subscribe: (o, kp, cb) ->
         lock.on 'sync', (r) -> cb r[kp.replace(/,/g,'.')]
-      #unsubscribe: (o, kp, cb) -> o.unwatch kp.replace(/,/g,'.'); cb()
+      unsubscribe: (o, kp, cb) -> cb()
       read: (o, kp) -> o[kp.replace(/,/g,'.')]
-      publish: (o, kp, val) -> 
+      publish: (o, kp, val) ->
         lock.atomic(->
           @set kp.replace(/,/g,'.'), val
           @done()
