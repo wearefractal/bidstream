@@ -1,16 +1,26 @@
-#auction
-  h1 ${root.auction.title}
-  img(src='${root.auction.image_url}')
+.navbar(style="width:100%;")
+  i.icon-play
+  &nbsp;
+  b bidstream
+  .pull-right logged in
 
-  ul
-   li(each-bid='${root.auction.bids}')
-    span ${bid.name}
-    span  - 
-    span ${bid.bid}
+table(width="100%")
+  tr
+    td.well(width="45%")
+      #item
+        h3 ${root.auction.title}
+        img(src='${root.auction.image_url}')
 
-#placebid
-  form.well
-    h2 Place bid
-    input#bidder.span3(type="text", placeholder="Name")
-    input#bid(type="text", placeholder="Bid")
-    button#placebtn.btn Place bid
+        //
+          li
+           ul(each-bid='${root.auction.bids}')
+            span ${bid.name}
+            span  - 
+            span ${bid.bid}
+     
+        div
+          | details
+
+    td(style="padding-left:10px;")
+      | foo
+

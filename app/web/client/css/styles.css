@@ -138,6 +138,7 @@ i {
 }
 
 .navbar .navbar-inner { 
+  margin-top: 10px;
   border: none; 
   background: none;
   box-shadow: none;
@@ -192,7 +193,7 @@ i {
 
 .well {
   box-shadow: 
-    rgba(000,000,000,0.2) 5px 5px 15px 5px;
+    rgba(000,000,000,0.2) 1px 1px 1px 1px;
 /*  background-image: 
     -webkit-gradient(linear, 1% 0%, 1% 5%, 
       from(#ccc), to(#F5F5F5));

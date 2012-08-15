@@ -13,9 +13,7 @@ gruntConfig =
     jaded: 
       # -r for rivets binding
       command: "#{app.paths.npmBin}/jaded -dra -i ./app/web/client/templates -o ./app/web/public/templates"
-    static:
-      command: "cp #{app.paths.client}/index.html #{app.paths.public} && cp #{app.paths.client}/js/vendor/*.js #{app.paths.public}/js/vendor && cp -R #{app.paths.client}/css/* #{app.paths.public}/css && cp -R #{app.paths.client}/img/* #{app.paths.public}/img"
-
+ 
   coffee:
     app:
       src: [ "#{app.paths.client}/js/*.coffee" ]
@@ -47,18 +45,26 @@ gruntConfig =
   lint:
     files: [ "grunt.js", "lib/**/*.js", "test/**/*.js" ]
 
+  # dest: src
+  copy:
+    dist: 
+      files: 
+        "app/web/public/js/vendor/": "#{app.paths.client}/js/vendor/**"
+        "app/web/public/css/":       "#{app.paths.client}/css/**"
+        "app/web/public/img/":       "#{app.paths.client}/img/**"
+        "app/web/public/":           "#{app.paths.client}/index.html"
   ##
   ## watch
   ##
 
   watch:
-    index:
-      files: "#{app.paths.client}/index.html"
-      tasks: "exec:static reload"
-
-    vendor:
-      files: "#{app.paths.client}/js/vendor/*.js"
-      tasks: "exec:static reload"
+    client: 
+      files: [
+        "#{app.paths.client}/js/vendor/**",
+        "#{app.paths.client}/css/**",
+        "#{app.paths.client}/index.html"
+      ]
+      tasks: "copy reload"
 
     # templates
     jaded:
@@ -72,10 +78,6 @@ gruntConfig =
                "<config:coffee.myTasks.src>" ]
       tasks: "coffee reload"    
 
-    styles:
-      files: "#{app.paths.public}/css/styles.css"
-      tasks: "reload"
-
   globals:
     exports: true
 
@@ -84,12 +86,13 @@ module.exports = (grunt) ->
   ## init config 
   grunt.initConfig gruntConfig
 
+  grunt.loadNpmTasks "grunt-contrib"
   grunt.loadNpmTasks "grunt-coffee"
   grunt.loadNpmTasks "grunt-reload"
   grunt.loadNpmTasks "grunt-exec"
-
+  
   ## default 
-  grunt.registerTask "default", "exec:static exec:jaded lint test coffee reload start watch"
+  grunt.registerTask "default", "copy exec:jaded lint test coffee reload start watch"
 
   ## start 
   grunt.registerTask "start", "start up servers", ->
