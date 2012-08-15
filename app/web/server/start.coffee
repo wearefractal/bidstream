@@ -11,8 +11,8 @@ server = webServer.listen app.web.port
 
 shared =
   auction:
-    title: 'Awesome Book'
-    image_url: 'http://ecx.images-amazon.com/images/I/51GeFt0kCjL._SL135_.jpg'
+    title: 'Apple iPhone 4S 16GB - White Factory Unlocked'
+    image_url: 'http://ecx.images-amazon.com/images/I/41ua5HiV45L._SS500_.jpg'
     bids: [
       name: 'Choni'
       bid: 70

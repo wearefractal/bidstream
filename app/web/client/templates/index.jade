@@ -1,26 +1,48 @@
-.navbar(style="width:100%;")
-  i.icon-play
-  &nbsp;
-  b bidstream
-  .pull-right logged in
+center
+  table(style="width:980px;", border="0")
+    tr
+      td(colspan=2,style="color:#666;opacity:0.4")
+        table(cellpadding="0",cellspacing="0",width="100%", border="0")
+          tr
+            td
+              i.icon-play
+              &nbsp;
+              b bidstream
+              input(placeholder="search",style="margin: 0px 0px 3px 20px;")
+            td
+              .pull-right logged in
 
-table(width="100%")
-  tr
-    td.well(width="45%")
-      #item
-        h3 ${root.auction.title}
-        img(src='${root.auction.image_url}')
+        hr(style="margin: 5px -10px 20px 0px;")
+    
+    tr
+      td(colspan=2,style="")
+        h3(style="padding-bottom: 8px;color:#666;") ${root.auction.title}
+    tr
+      td(style="background:#fff;min-width:320px;")
+        center
+          img(src='${root.auction.image_url}', height="50%", width="85%", style="padding:10px;")
+          br  
+          br
+      td(rowspan=2,style="padding-left:20px;width:100%;height:100%;background-color:#ccc;opacity:0.1;")
+        b deets
 
-        //
-          li
-           ul(each-bid='${root.auction.bids}')
-            span ${bid.name}
-            span  - 
-            span ${bid.bid}
-     
-        div
-          | details
+    tr
+      td
+        #b1(style="width:100%;background-color:#ccc;opacity:0.3;border-bottom:1px solid #fff;") 
+          h3(style="padding:10px 10px 10px 10px;") someshit                    
+        #b1(style="width:100%;background-color:#ccc;opacity:0.1;border-bottom:1px solid #fff;") 
+          h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
+        #b1(style="width:100%;background-color:#ccc;opacity:0.3;border-bottom:1px solid #fff;") 
+          h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
+        #b1(style="width:100%;background-color:#ccc;opacity:0.3;border-bottom:1px solid #fff;") 
+          h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
+        #b1(style="width:100%;background-color:#ccc;opacity:0.3;border-bottom:1px solid #fff;") 
+          h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
 
-    td(style="padding-left:10px;")
-      | foo
-
+          //
+            li
+             ul(each-bid='${root.auction.bids}')
+              span ${birowspan=2,d.name}
+            b deets
+              span ${bid.bid}
+       
