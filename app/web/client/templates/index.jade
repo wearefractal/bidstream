@@ -15,40 +15,41 @@ center
         hr(style="margin: 5px -10px 20px 0px;")
     
     tr
-      td(colspan=2,style="padding-bottom: 10px;")
-        h3(style="padding-bottom: 1px; color:#666;") ${root.auction.title}
-        
-        span(style="color:#666; padding: 0px;")
-          | sold by 
-          &nbsp;
-          i.icon-user
-          &nbsp;
-          a Contra
-          &nbsp;
-          &nbsp;
-          i.icon-star
-          | 471
-    tr
-      td.product(style="min-width:320px;")
-        center
-          img(src='${root.auction.image_url}', height="50%", width="85%", style="padding:10px;")
-          br  
-          br
-      td(rowspan=2,style="padding-left:20px;width:100%;height:100%;")//background-color:#ccc;opacity:0.1;")
-        b deets
+      td(nowrap=true,colspan=2,style="padding-bottom: 10px;")
+        .pull-left
+          h3(style="padding-bottom: 1px; color:#666;") ${root.auction.title}
+          
+          span(style="color:#666; padding: 0px;")
+            | sold by 
+            &nbsp;
+            i.icon-user
+            &nbsp;
+            a Contra
+            &nbsp;
+            &nbsp;
+            i.icon-star
+            | 471
+
+        h3.pull-right(style="padding-bottom: 1px; color:#666;") $80.67
 
     tr
       td
-        #b1(style="width:100%;border-bottom:1px solid #fff;") 
-          h3(style="padding:10px 10px 10px 10px;") someshit                    
-        #b1(style="width:100%;border-bottom:1px solid #fff;") 
-          h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
-        #b1(style="width:100%;background-color:#ccc;opacity:0.3;border-bottom:1px solid #fff;") 
-          h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
-        #b1(style="width:100%;border-bottom:1px solid #fff;") 
-          h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
-        #b1(style="width:100%;border-bottom:1px solid #fff;") 
-          h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
+        .product(style="width:320px;")
+          center
+            img(src='${root.auction.image_url}', height="50%", width="85%", style="padding:10px;")
+            br  
+            br
+      td(rowspan=2,style="padding-left:20px;width:100%;height:100%;")//background-color:#ccc;opacity:0.1;")
+
+    tr
+      td
+        div(style="width:320px;")
+          #b1(style="border-bottom:1px solid #fff;") 
+            h3(style="padding:10px 10px 10px 10px;") someshit                    
+          #b1(style="border-bottom:1px solid #fff;") 
+            h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
+          #b1(style="background-color:#ccc;opacity:0.3;border-bottom:1px solid #fff;") 
+            h3(style="opacity:1.0;padding:10px 10px 10px 10px;") someshit             
 
           //
             li
