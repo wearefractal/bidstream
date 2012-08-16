@@ -8,12 +8,6 @@ gruntConfig =
   test:
     files: [ "tests/**/*.js" ]
 
-  exec: 
-    # http://github.com/wearefractal/jaded
-    jaded: 
-      # -r for rivets binding
-      command: "#{app.paths.npmBin}/jaded -dra -i ./app/web/client/templates -o ./app/web/public/templates"
- 
   coffee:
     app:
       src: [ "#{app.paths.client}/js/*.coffee" ]
@@ -21,9 +15,9 @@ gruntConfig =
       options:
         bare: true
 
-    routes:
-      src: [ "#{app.paths.client}/js/routes/*.coffee" ]
-      dest:  "#{app.paths.public}/js/routes"
+    services:
+      src: [ "#{app.paths.client}/js/services/*.coffee" ]
+      dest:  "#{app.paths.public}/js/services"
       options:
         bare: true
 
@@ -53,6 +47,7 @@ gruntConfig =
         "app/web/public/css/":       "#{app.paths.client}/css/**"
         "app/web/public/img/":       "#{app.paths.client}/img/**"
         "app/web/public/":           "#{app.paths.client}/index.html"
+
   ##
   ## watch
   ##
@@ -66,14 +61,13 @@ gruntConfig =
       ]
       tasks: "copy reload"
 
-    # templates
     jaded:
       files: "#{app.paths.client}/templates/*.jade"
-      tasks: "exec:jaded reload"
+      tasks: "jaded reload"
 
     coffee:
       files: [ "<config:coffee.app.src>",
-               "<config:coffee.routes.src>",
+               "<config:coffee.services.src>",
                "<config:coffee.vendor.src>",  
                "<config:coffee.myTasks.src>" ]
       tasks: "coffee reload"    
@@ -87,16 +81,33 @@ module.exports = (grunt) ->
   grunt.initConfig gruntConfig
 
   grunt.loadNpmTasks "grunt-contrib"
-  grunt.loadNpmTasks "grunt-coffee"
+  grunt.loadNpmTasks "grunt-coffee"   
   grunt.loadNpmTasks "grunt-reload"
   grunt.loadNpmTasks "grunt-exec"
-  
-  ## default 
-  grunt.registerTask "default", "copy exec:jaded lint test coffee reload start watch"
 
-  ## start 
+  ## default 
+  grunt.registerTask "default", 
+    "copy jaded lint test coffee reload start watch"
+
+  ## start
   grunt.registerTask "start", "start up servers", ->
     grunt.log.writeln "starting servers..."
     require "#{app.paths.server}/server"
 
- 
+  ## jaded
+  grunt.registerTask "jaded", "compile jaded templates", ->
+    jaded = require 'jaded'  
+    {baseName}  = require 'path'
+    src   = app.paths.client + '/templates'
+    dest  = app.paths.public + '/templates'
+    grunt.file.recurse src, 
+      (absolute, root, subdir, filename) ->
+        [name, _] = filename.split '.'
+        dest = dest + "/" + "#{name}.js"
+        console.log dest
+        template = jaded.compile grunt.file.read(absolute), 
+          development: true
+          rivets:      true
+          amd:         true
+        grunt.file.write dest, template
+
