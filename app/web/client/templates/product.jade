@@ -1,0 +1,24 @@
+table.table.table-bordered(cellpadding="0", cellspacing="0", border="0")
+  thead
+    tr
+      th ${root.auction.title}
+  tbody
+    tr
+      td
+        #productCarousel.carousel
+          .carousel-inner(each-image="${root.auction.images}")
+            .item.active
+              img(src='${image.src}')
+
+          a.carousel-control.left(href='#productCarousel', data-slide='prev') ‹
+          a.carousel-control.right(href='#productCarousel', data-slide='next') ›
+
+        #productFooter          
+          i.icon-user
+          &nbsp;
+          a ${root.auction.seller.name}
+          &nbsp;
+          &nbsp;
+          i.icon-star
+          &nbsp;
+          b ${root.auction.seller.rating}

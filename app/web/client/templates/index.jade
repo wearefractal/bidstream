@@ -1,78 +1,12 @@
 .container
-
-  // header
-  .row(style="color:#666;opacity:0.4")
-    .span12
-      i.icon-play
-      &nbsp;
-      b bidstream
-      input(placeholder="search",style="margin: 0px 0px 3px 20px;")
-      .pull-right logged in
-
-  hr(style="margin: 5px -10px 20px 0px;opacity: 0.6;")
-
-  // item
-  .row
-    .span12
-      h3(style="padding-bottom: 3px; color:#666;") ${root.auction.title}        
-
-  .row(style="padding-top: 15px;")
+  include header
+  .row-fluid
     .span4
-      .product
-        center
-          img(src='${root.auction.image_url}', height="50%", width="85%", style="padding:10px;")        
+      include product
 
-        #productFooter          
-          i.icon-user
-          &nbsp;
-          a ${root.auction.seller.name}
-          &nbsp;
-          &nbsp;
-          i.icon-star
-          &nbsp;
-          b ${root.auction.seller.rating}
+    .span8
+      include auctionData
 
-      #productInfo.menu
-        | product info
-
-      //
-        ul.menu
-          li
-            i.icon-time
-            | bids                  
-          li
-            i.icon-info-sign
-            | product info                    
-          li
-            i.icon-question-sign
-            | questions
-          li 
-            i.icon-comments
-            | live chat
-
-    .span2
-      &nbsp;
-
-    #auctionData.span6
-      #auctionHeader
-        &nbsp;
-        &nbsp;
-        i.icon-eye-open
-        &nbsp;
-        b ${root.auction.watchedBy}
-        &nbsp;
-        #timeLeft
-      #graph
-        | graph
-      #chat
-        | chat
-
-      include graph
-
-  //
-    li
-     ul(each-bid='${root.auction.bids}')
-      span ${birowspan=2,d.name}
-    b deets
-      span ${bid.bid}
-
+  .row-fluid
+    .span4
+      include productInfo

@@ -10,7 +10,7 @@ define(function() {
       merge = merge || jade.merge;
       var __jade = [ {
         lineno: 1,
-        filename: "/home/x51/apps/bidstream/app/web/client/templates/graph.jade"
+        filename: "/home/contra/Projects/bidstream/app/web/client/templates/graph.jade"
       } ];
       try {
         var buf = [];
@@ -24,19 +24,31 @@ define(function() {
             lineno: 1,
             filename: __jade[0].filename
           });
-          buf.push("<h1>");
+          buf.push('<div id="bidHistory">');
           __jade.unshift({
             lineno: undefined,
             filename: __jade[0].filename
           });
           __jade.unshift({
-            lineno: 1,
+            lineno: 2,
+            filename: __jade[0].filename
+          });
+          buf.push("<h3>");
+          __jade.unshift({
+            lineno: undefined,
+            filename: __jade[0].filename
+          });
+          __jade.unshift({
+            lineno: 2,
             filename: __jade[0].filename
           });
           buf.push("graph");
           __jade.shift();
           __jade.shift();
-          buf.push("</h1>");
+          buf.push("</h3>");
+          __jade.shift();
+          __jade.shift();
+          buf.push("</div>");
           __jade.shift();
           __jade.shift();
         }

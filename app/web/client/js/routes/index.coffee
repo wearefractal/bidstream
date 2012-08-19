@@ -2,6 +2,7 @@ define ["app/lock"], (lock) ->
   (_, index) ->
     lock.ready ->
       index '#main', root: lock.root
+      
       $('#placebtn').click (e) ->
         e.preventDefault()
         name = $('#bidder').val()

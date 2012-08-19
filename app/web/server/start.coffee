@@ -11,12 +11,18 @@ server = webServer.listen app.web.port
 
 shared =
   auction:
-    title: 'Apple iPhone 4S 16GB - White Factory Unlocked'
+    title: 'Apple iPhone 4S 16GB - White'
     watchedBy: 23
     seller: 
       name: 'Contra'
       rating: 479
-    image_url: 'http://ecx.images-amazon.com/images/I/41ua5HiV45L._SS500_.jpg'
+    images: [
+      #  src: 'http://i.imgur.com/5IZ3Q.jpg'
+      #,
+      #  src: 'http://i.imgur.com/ehqYb.jpg'
+      #,
+        src: 'http://i.imgur.com/lc954.jpg'
+    ]
     bids: [
       name: 'Choni'
       bid: 70
