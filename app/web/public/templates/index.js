@@ -10,7 +10,7 @@ define(function() {
       merge = merge || jade.merge;
       var __jade = [ {
         lineno: 1,
-        filename: "/home/contra/Projects/bidstream/app/web/client/templates/index.jade"
+        filename: "/home/x51/apps/bidstream/app/web/client/templates/index.jade"
       } ];
       try {
         var buf = [];
@@ -31,7 +31,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/contra/Projects/bidstream/app/web/client/templates/header.jade"
+            filename: "/home/x51/apps/bidstream/app/web/client/templates/header.jade"
           });
           __jade.unshift({
             lineno: 1,
@@ -144,7 +144,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/contra/Projects/bidstream/app/web/client/templates/product.jade"
+            filename: "/home/x51/apps/bidstream/app/web/client/templates/product.jade"
           });
           __jade.unshift({
             lineno: 1,
@@ -414,7 +414,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/contra/Projects/bidstream/app/web/client/templates/auctionData.jade"
+            filename: "/home/x51/apps/bidstream/app/web/client/templates/auctionData.jade"
           });
           __jade.unshift({
             lineno: 1,
@@ -541,7 +541,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/contra/Projects/bidstream/app/web/client/templates/graph.jade"
+            filename: "/home/x51/apps/bidstream/app/web/client/templates/graph.jade"
           });
           __jade.unshift({
             lineno: 1,
@@ -556,19 +556,49 @@ define(function() {
             lineno: 2,
             filename: __jade[0].filename
           });
-          buf.push("<h3>");
+          buf.push('<div id="chart_container">');
           __jade.unshift({
             lineno: undefined,
             filename: __jade[0].filename
           });
           __jade.unshift({
-            lineno: 2,
+            lineno: 3,
             filename: __jade[0].filename
           });
-          buf.push("graph");
+          buf.push('<div id="chart">');
+          __jade.unshift({
+            lineno: undefined,
+            filename: __jade[0].filename
+          });
+          __jade.shift();
+          buf.push("</div>");
+          __jade.shift();
+          __jade.unshift({
+            lineno: 4,
+            filename: __jade[0].filename
+          });
+          buf.push('<div id="timeline">');
+          __jade.unshift({
+            lineno: undefined,
+            filename: __jade[0].filename
+          });
+          __jade.shift();
+          buf.push("</div>");
+          __jade.shift();
+          __jade.unshift({
+            lineno: 5,
+            filename: __jade[0].filename
+          });
+          buf.push('<div id="slider">');
+          __jade.unshift({
+            lineno: undefined,
+            filename: __jade[0].filename
+          });
+          __jade.shift();
+          buf.push("</div>");
           __jade.shift();
           __jade.shift();
-          buf.push("</h3>");
+          buf.push("</div>");
           __jade.shift();
           __jade.shift();
           buf.push("</div>");
@@ -616,7 +646,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/contra/Projects/bidstream/app/web/client/templates/productInfo.jade"
+            filename: "/home/x51/apps/bidstream/app/web/client/templates/productInfo.jade"
           });
           __jade.unshift({
             lineno: 1,

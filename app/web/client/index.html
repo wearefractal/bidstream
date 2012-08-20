@@ -5,25 +5,60 @@
       <title>bidstream</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <![endif]-->
-
       <link href="css/vendor/noty_theme_twitter.css" rel="stylesheet" />
       <link href="css/vendor/bootstrap.css" rel="stylesheet" />
       <link href="css/vendor/bootstrap-responsive.css" rel="stylesheet" />
       <link href="css/styles.css" rel="stylesheet" />
       <link rel="stylesheet" href="css/vendor/FontAwesome/css/font-awesome.css">
 
+
+      <!-- rickshaw -->
+      <link type="text/css" rel="stylesheet" href="css/extensions.css">
+      <link type="text/css" rel="stylesheet" href="css/graph.css">
+      <link type="text/css" rel="stylesheet" href="css/detail.css">
+      <link type="text/css" rel="stylesheet" href="css/legend.css">
+
+
       <!-- dev -->
       <script>__reloadServerUrl="ws://localhost:8001";</script>
       <script type="text/javascript" src="//localhost:8001/__reload/client.js"></script>
 
-      <script src="http://d3js.org/d3.v2.min.js"></script>
+      <!-- d3 -->
+      <script src="js/vendor/d3.min.js"></script>
+      <script src="js/vendor/d3.layout.min.js"></script>
 
-      <!-- jade -->
+      <!-- rickshaw -->  
+      <script src="js/vendor/rickshaw/Rickshaw.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Class.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Compat.ClassList.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Renderer.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Renderer.Area.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Renderer.Line.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Renderer.Bar.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Renderer.ScatterPlot.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.RangeSlider.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.HoverDetail.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Annotate.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Axis.Time.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Behavior.Series.Toggle.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Behavior.Series.Order.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Behavior.Series.Highlight.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Smoother.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Unstacker.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Fixtures.Time.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Fixtures.Number.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Fixtures.RandomData.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Fixtures.Color.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Color.Palette.js"></script>
+      <script src="js/vendor/rickshaw/Rickshaw.Graph.Axis.Y.js"></script>
+
+      <script src="js/extensions.js"></script>
+
+      <!-- jade runtime -->
       <script src="https://raw.github.com/visionmedia/jade/master/runtime.js"></script>
-      <!-- rivets -->
+
+      <!-- vendor -->
       <script src="js/vendor/rivets.js"></script>
       <script src="js/vendor/dermis.js"></script>
       <script src="js/vendor/jquery.js"></script>
