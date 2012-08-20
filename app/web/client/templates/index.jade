@@ -1,7 +1,7 @@
-.container-fluid
+.container
 
   // header
-  .row-fluid(style="color:#666;opacity:0.4")
+  .row(style="color:#666;opacity:0.4")
     .span12
       i.icon-play
       &nbsp;
@@ -12,46 +12,60 @@
   hr(style="margin: 5px -10px 20px 0px;opacity: 0.6;")
 
   // item
-  .row-fluid
+  .row
     .span12
-      h3(style="padding-bottom: 3px; color:#666;") ${root.auction.title}
-      span(style="color:#666; padding: 0px;")
-        | sold by 
-        &nbsp;
-        i.icon-user
-        &nbsp;
-        a Contra
-        &nbsp;
-        &nbsp;
-        i.icon-star
-        | 471
+      h3(style="padding-bottom: 3px; color:#666;") ${root.auction.title}        
+
+  .row(style="padding-top: 15px;")
+    .span4
+      .product
+        center
+          img(src='${root.auction.image_url}', height="50%", width="85%", style="padding:10px;")        
+
+        #productFooter          
+          i.icon-user
+          &nbsp;
+          a ${root.auction.seller.name}
+          &nbsp;
+          &nbsp;
+          i.icon-star
+          &nbsp;
+          b ${root.auction.seller.rating}
+
+      #productInfo.menu
+        | product info
+
+      //
+        ul.menu
+          li
+            i.icon-time
+            | bids                  
+          li
+            i.icon-info-sign
+            | product info                    
+          li
+            i.icon-question-sign
+            | questions
+          li 
+            i.icon-comments
+            | live chat
+
+    .span2
+      &nbsp;
+
+    #auctionData.span6
+      #auctionHeader
         &nbsp;
         &nbsp;
         i.icon-eye-open
-        | 27
-
-  .row-fluid(style="padding-top: 15px;")
-    .span4
-      .product(style="width:320px;")
-        center
-          img(src='${root.auction.image_url}', height="50%", width="85%", style="padding:10px;")
-      div
-        #b1(style="width:100%;border-bottom:1px solid #fff;font-size:18px;padding-bottom: 10px; padding-top: 10px;margin-bottom:10px;background-color:#fff") 
-          i.icon-time
-          span(style="padding:10px 10px 10px 10px;") history                    
-        #b1(style="width:100%;border-bottom:1px solid #fff;font-size:18px;padding-bottom: 10px; margin-bottom:10px;") 
-          i.icon-info-sign
-          span(style="padding:10px 10px 10px 10px;") product info                    
-        #b1(style="width:100%;border-bottom:1px solid #fff;font-size:18px;padding-bottom: 10px; margin-bottom:10px;") 
-          i.icon-question-sign
-          span(style="opacity:1.0;padding:10px 10px 10px 10px;") questions
-        #b1(style="width:100%;border-bottom:1px solid #fff;font-size:18px;padding-bottom: 10px; margin-bottom:10px;") 
-          i.icon-comments
-          span(style="opacity:1.0;padding:10px 10px 10px 10px;") live chat
-
-
-    .span6
-      | graph etc
+        &nbsp;
+        b ${root.auction.watchedBy}
+        &nbsp;
+        #timeLeft
+      #graph
+        | graph
+      #chat
+        | chat
 
   //
     li

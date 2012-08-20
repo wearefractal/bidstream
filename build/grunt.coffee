@@ -16,8 +16,8 @@ gruntConfig =
         bare: true
 
     services:
-      src: [ "#{app.paths.client}/js/services/*.coffee" ]
-      dest:  "#{app.paths.public}/js/services"
+      src: [ "#{app.paths.client}/js/routes/*.coffee" ]
+      dest:  "#{app.paths.public}/js/routes"
       options:
         bare: true
 
@@ -53,6 +53,13 @@ gruntConfig =
   ##
 
   watch:
+    coffee:
+      files: [ "<config:coffee.app.src>",
+               "<config:coffee.services.src>",
+               "<config:coffee.vendor.src>",  
+               "<config:coffee.myTasks.src>" ]
+      tasks: "coffee reload"    
+
     client: 
       files: [
         "#{app.paths.client}/js/vendor/**",
@@ -65,12 +72,6 @@ gruntConfig =
       files: "#{app.paths.client}/templates/*.jade"
       tasks: "jaded reload"
 
-    coffee:
-      files: [ "<config:coffee.app.src>",
-               "<config:coffee.services.src>",
-               "<config:coffee.vendor.src>",  
-               "<config:coffee.myTasks.src>" ]
-      tasks: "coffee reload"    
 
   globals:
     exports: true
@@ -79,15 +80,15 @@ gruntConfig =
 module.exports = (grunt) ->
   ## init config 
   grunt.initConfig gruntConfig
-
+  
   grunt.loadNpmTasks "grunt-contrib"
-  grunt.loadNpmTasks "grunt-coffee"   
   grunt.loadNpmTasks "grunt-reload"
   grunt.loadNpmTasks "grunt-exec"
-
+  grunt.loadNpmTasks "grunt-coffee" 
+  
   ## default 
   grunt.registerTask "default", 
-    "copy jaded lint test coffee reload start watch"
+    "coffee copy jaded lint reload test start watch"
 
   ## start
   grunt.registerTask "start", "start up servers", ->
