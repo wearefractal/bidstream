@@ -26,9 +26,11 @@ shared =
     bids: [
       name: 'Choni'
       bid: 70
+      time: 1345512533015
     ,
       name: 'Shoni'
       bid: 67
+      time: 1345512533035
     ]
 
 # Warlock

@@ -3,47 +3,30 @@ define ["app/lock"], (lock) ->
     lock.ready ->
       index '#main', root: lock.root
       
-      $('#placebtn').click (e) ->
+      $('#bidButton').click (e) ->
         e.preventDefault()
-        name = $('#bidder').val()
-        num = parseFloat $('#bid').val()
-        return unless name? and num?
-        return unless name.length > 0
+        #name = $('#bidder').val()
+        #num = parseFloat $('#bid').val()
+        #return unless name? and num?
+        #return unless name.length > 0
         lock.atomic(->
+          currentBid = lock.root['auction.bids'][0]
           @unshift 'auction.bids', 
-            name: name
-            bid: num
+            bid: currentBid.bid + 1
+            bidder: 'contra'
+            time: new Date().getTime()
           @done()
         ).run()
 
-      # rickshaw graph
-
-      # add some data every so often
-      #addAnnotation = (force) ->
-      #  annotator.add seriesData[2][seriesData[2].length - 1].x, messages.shift()  if messages.length > 0 and (force or Math.random() >= 0.95)
-      #seriesData = [[], [], [], [], [], [], [], [], []]
-      #random = new Rickshaw.Fixtures.RandomData(150)
-      #i = 0
-      #while i < 150
-      #  random.addData seriesData
-      #  i++
-      #console.log seriesData
-      
+      ## Rickshaw
+ 
       palette = new Rickshaw.Color.Palette(scheme: "classic9")
-      bids =  [
-        x: 12121212,
-        y: 23
-      ,
-        x: 12121223,
-        y: 40
-      ,
-        x: 12121243,
-        y: 50
-      ,
-        x: 12121263,
-        y: 60
 
-      ]
+      bids = []
+      for bid in lock.root['auction.bids']
+        bids.push
+          x: bid.time
+          y: bid.bid
 
       graph = new Rickshaw.Graph(
         element: document.getElementById("chart")
@@ -76,11 +59,13 @@ define ["app/lock"], (lock) ->
       )
       yAxis.render()
 
-      lock.subscribe 'auction.highBid', ->
-        console.log lock.root
-        seriesData[0].push
-          x: 22332323
-          y: 23322
+      lock.subscribe ->
+        #console.log lock.root
+        currentBid = lock.root['auction.bids'][0]        
+        console.log currentBid
+        bids.push
+          x: currentBid.time
+          y: currentBid.bid
         graph.update()
 
 

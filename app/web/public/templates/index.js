@@ -556,13 +556,43 @@ define(function() {
             lineno: 2,
             filename: __jade[0].filename
           });
+          buf.push('<button id="bidButton" class="btn btn-success">');
+          __jade.unshift({
+            lineno: undefined,
+            filename: __jade[0].filename
+          });
+          __jade.unshift({
+            lineno: 2,
+            filename: __jade[0].filename
+          });
+          buf.push("+ BID! ");
+          __jade.shift();
+          __jade.shift();
+          buf.push("</button>");
+          __jade.shift();
+          __jade.unshift({
+            lineno: 4,
+            filename: __jade[0].filename
+          });
+          buf.push("<br/>");
+          __jade.shift();
+          __jade.unshift({
+            lineno: 5,
+            filename: __jade[0].filename
+          });
+          buf.push("<br/>");
+          __jade.shift();
+          __jade.unshift({
+            lineno: 5,
+            filename: __jade[0].filename
+          });
           buf.push('<div id="chart_container">');
           __jade.unshift({
             lineno: undefined,
             filename: __jade[0].filename
           });
           __jade.unshift({
-            lineno: 3,
+            lineno: 6,
             filename: __jade[0].filename
           });
           buf.push('<div id="chart">');
@@ -574,7 +604,7 @@ define(function() {
           buf.push("</div>");
           __jade.shift();
           __jade.unshift({
-            lineno: 4,
+            lineno: 7,
             filename: __jade[0].filename
           });
           buf.push('<div id="timeline">');
@@ -586,7 +616,7 @@ define(function() {
           buf.push("</div>");
           __jade.shift();
           __jade.unshift({
-            lineno: 5,
+            lineno: 8,
             filename: __jade[0].filename
           });
           buf.push('<div id="slider">');
@@ -739,7 +769,7 @@ define(function() {
             lineno: 8,
             filename: __jade[0].filename
           });
-          buf.push("shit yo");
+          buf.push("AT&T Unlocked");
           __jade.shift();
           __jade.shift();
           buf.push("</td>");

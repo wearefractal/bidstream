@@ -111,7 +111,7 @@ define(function() {
             lineno: 8,
             filename: __jade[0].filename
           });
-          buf.push("shit yo");
+          buf.push("AT&T Unlocked");
           __jade.shift();
           __jade.shift();
           buf.push("</td>");
