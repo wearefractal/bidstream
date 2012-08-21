@@ -2,7 +2,7 @@
 define(["app/lock"], function(lock) {
   return function(_, index) {
     return lock.ready(function() {
-      var addAnnotation, annotator, bids, graph, hoverDetail, i, palette, random, seriesData, ticksTreatment, xAxis, yAxis;
+      var annotator, bids, graph, hoverDetail, palette, ticksTreatment, xAxis, yAxis;
       index('#main', {
         root: lock.root
       });
@@ -25,48 +25,24 @@ define(["app/lock"], function(lock) {
           return this.done();
         }).run();
       });
-      addAnnotation = function(force) {
-        if (messages.length > 0 && (force || Math.random() >= 0.95)) {
-          return annotator.add(seriesData[2][seriesData[2].length - 1].x, messages.shift());
-        }
-      };
-      seriesData = [[], [], [], [], [], [], [], [], []];
-      random = new Rickshaw.Fixtures.RandomData(150);
-      i = 0;
-      while (i < 150) {
-        random.addData(seriesData);
-        i++;
-      }
-      console.log(seriesData);
       palette = new Rickshaw.Color.Palette({
         scheme: "classic9"
       });
-      bids = seriesData[0];
-      /*
-            [
-              x: 1212121
-              y: 14.50
-              name: "contra"
-            ,
-              x: 1212122
-              y: 28.65
-              name: "fii"
-            ,
-              x: 12121233
-              y: 50.65
-              name: "fii"
-            ,
-              x: 12121445
-              y: 90.65
-              name: "fii"
-            ,
-              x: 12121455
-              y: 100.65
-              name: "fii"
-      
-            ]
-      */
-
+      bids = [
+        {
+          x: 12121212,
+          y: 23
+        }, {
+          x: 12121223,
+          y: 40
+        }, {
+          x: 12121243,
+          y: 50
+        }, {
+          x: 12121263,
+          y: 60
+        }
+      ];
       graph = new Rickshaw.Graph({
         element: document.getElementById("chart"),
         width: 750,
@@ -101,10 +77,23 @@ define(["app/lock"], function(lock) {
         ticksTreatment: ticksTreatment
       });
       yAxis.render();
-      setInterval((function() {
-        random.addData(seriesData);
+      lock.subscribe('auction.highBid', function() {
+        console.log(lock.root);
+        seriesData[0].push({
+          x: 22332323,
+          y: 23322
+        });
         return graph.update();
-      }), 1000);
+      });
+      /*
+            setInterval (->
+              seriesData[0].push
+                x: 22332323
+                y: 23322
+              graph.update()
+            ), 1000
+      */
+
       addAnnotation(true);
       return setTimeout((function() {
         return setInterval(addAnnotation, 6000);

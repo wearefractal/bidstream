@@ -19,42 +19,32 @@ define ["app/lock"], (lock) ->
       # rickshaw graph
 
       # add some data every so often
-      addAnnotation = (force) ->
-        annotator.add seriesData[2][seriesData[2].length - 1].x, messages.shift()  if messages.length > 0 and (force or Math.random() >= 0.95)
-      seriesData = [[], [], [], [], [], [], [], [], []]
-      random = new Rickshaw.Fixtures.RandomData(150)
-      i = 0
-
-      while i < 150
-        random.addData seriesData
-        i++
-      console.log seriesData
+      #addAnnotation = (force) ->
+      #  annotator.add seriesData[2][seriesData[2].length - 1].x, messages.shift()  if messages.length > 0 and (force or Math.random() >= 0.95)
+      #seriesData = [[], [], [], [], [], [], [], [], []]
+      #random = new Rickshaw.Fixtures.RandomData(150)
+      #i = 0
+      #while i < 150
+      #  random.addData seriesData
+      #  i++
+      #console.log seriesData
+      
       palette = new Rickshaw.Color.Palette(scheme: "classic9")
-      bids =  seriesData[0]
-      ###
-      [
-        x: 1212121
-        y: 14.50
-        name: "contra"
+      bids =  [
+        x: 12121212,
+        y: 23
       ,
-        x: 1212122
-        y: 28.65
-        name: "fii"
+        x: 12121223,
+        y: 40
       ,
-        x: 12121233
-        y: 50.65
-        name: "fii"
+        x: 12121243,
+        y: 50
       ,
-        x: 12121445
-        y: 90.65
-        name: "fii"
-      ,
-        x: 12121455
-        y: 100.65
-        name: "fii"
+        x: 12121263,
+        y: 60
 
       ]
-      ###
+
       graph = new Rickshaw.Graph(
         element: document.getElementById("chart")
         width: 750
@@ -85,10 +75,24 @@ define ["app/lock"], (lock) ->
         ticksTreatment: ticksTreatment
       )
       yAxis.render()
+
+      lock.subscribe 'auction.highBid', ->
+        console.log lock.root
+        seriesData[0].push
+          x: 22332323
+          y: 23322
+        graph.update()
+
+
+      ###
       setInterval (->
-        random.addData seriesData
+        seriesData[0].push
+          x: 22332323
+          y: 23322
         graph.update()
       ), 1000
+      ###
+
       addAnnotation true
       setTimeout (->
         setInterval addAnnotation, 6000
