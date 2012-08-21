@@ -10,7 +10,7 @@ define(function() {
       merge = merge || jade.merge;
       var __jade = [ {
         lineno: 1,
-        filename: "/home/x51/apps/bidstream/app/web/client/templates/index.jade"
+        filename: "/home/contra/Projects/bidstream/app/web/client/templates/index.jade"
       } ];
       try {
         var buf = [];
@@ -31,7 +31,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/x51/apps/bidstream/app/web/client/templates/header.jade"
+            filename: "/home/contra/Projects/bidstream/app/web/client/templates/header.jade"
           });
           __jade.unshift({
             lineno: 1,
@@ -144,7 +144,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/x51/apps/bidstream/app/web/client/templates/product.jade"
+            filename: "/home/contra/Projects/bidstream/app/web/client/templates/product.jade"
           });
           __jade.unshift({
             lineno: 1,
@@ -414,7 +414,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/x51/apps/bidstream/app/web/client/templates/auctionData.jade"
+            filename: "/home/contra/Projects/bidstream/app/web/client/templates/auctionData.jade"
           });
           __jade.unshift({
             lineno: 1,
@@ -541,7 +541,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/x51/apps/bidstream/app/web/client/templates/graph.jade"
+            filename: "/home/contra/Projects/bidstream/app/web/client/templates/graph.jade"
           });
           __jade.unshift({
             lineno: 1,
@@ -719,7 +719,7 @@ define(function() {
           });
           __jade.unshift({
             lineno: 1,
-            filename: "/home/x51/apps/bidstream/app/web/client/templates/productInfo.jade"
+            filename: "/home/contra/Projects/bidstream/app/web/client/templates/productInfo.jade"
           });
           __jade.unshift({
             lineno: 1,

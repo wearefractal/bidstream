@@ -2,7 +2,7 @@ define ["app/lock"], (lock) ->
   (_, index) ->
     lock.ready ->
       index '#main', root: lock.root
-      
+      $('#productCarousel').carousel()
       $('#bidButton').click (e) ->
         e.preventDefault()
         #name = $('#bidder').val()

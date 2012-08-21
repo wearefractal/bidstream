@@ -10,7 +10,7 @@ define(function() {
       merge = merge || jade.merge;
       var __jade = [ {
         lineno: 1,
-        filename: "/home/x51/apps/bidstream/app/web/client/templates/product.jade"
+        filename: "/home/contra/Projects/bidstream/app/web/client/templates/product.jade"
       } ];
       try {
         var buf = [];

@@ -6,6 +6,7 @@ define(["app/lock"], function(lock) {
       index('#main', {
         root: lock.root
       });
+      $('#productCarousel').carousel();
       $('#bidButton').click(function(e) {
         e.preventDefault();
         return lock.atomic(function() {
