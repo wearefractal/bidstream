@@ -16,6 +16,13 @@ define(["app/lock"], function(lock) {
             bidder: 'contra',
             time: new Date().getTime()
           });
+          this.set('auction.highBid', currentBid.bid + 1);
+          return this.done();
+        }).run();
+      });
+      $('#eye').click(function(e) {
+        return lock.atomic(function() {
+          this.set('auction.watchedBy', lock.root['auction.watchedBy'] + 1);
           return this.done();
         }).run();
       });

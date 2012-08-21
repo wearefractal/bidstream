@@ -15,8 +15,16 @@ define ["app/lock"], (lock) ->
             bid: currentBid.bid + 1
             bidder: 'contra'
             time: new Date().getTime()
+          @set 'auction.highBid', currentBid.bid + 1
           @done()
         ).run()
+
+      $('#eye').click (e) ->
+        lock.atomic(->
+          @set 'auction.watchedBy', lock.root['auction.watchedBy'] + 1
+          @done()
+        ).run()
+
 
       ## Rickshaw
  

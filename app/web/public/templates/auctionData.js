@@ -75,7 +75,7 @@ define(function() {
             lineno: 7,
             filename: __jade[0].filename
           });
-          buf.push('<div class="pull-right">');
+          buf.push('<div id="eye" class="pull-right">');
           __jade.unshift({
             lineno: undefined,
             filename: __jade[0].filename
@@ -157,7 +157,50 @@ define(function() {
             filename: __jade[0].filename
           });
           __jade.unshift({
-            lineno: 2,
+            lineno: 3,
+            filename: __jade[0].filename
+          });
+          buf.push('<span style="font-size:22px;">');
+          __jade.unshift({
+            lineno: undefined,
+            filename: __jade[0].filename
+          });
+          __jade.unshift({
+            lineno: 3,
+            filename: __jade[0].filename
+          });
+          buf.push("$");
+          __jade.shift();
+          __jade.unshift({
+            lineno: 4,
+            filename: __jade[0].filename
+          });
+          buf.push('<b data-text="root.auction.highBid">');
+          __jade.unshift({
+            lineno: undefined,
+            filename: __jade[0].filename
+          });
+          __jade.shift();
+          buf.push("</b>");
+          __jade.shift();
+          __jade.shift();
+          buf.push("</span>");
+          __jade.shift();
+          __jade.unshift({
+            lineno: 5,
+            filename: __jade[0].filename
+          });
+          buf.push("&nbsp;");
+          __jade.shift();
+          buf.push("\n");
+          __jade.unshift({
+            lineno: 6,
+            filename: __jade[0].filename
+          });
+          buf.push("&nbsp;");
+          __jade.shift();
+          __jade.unshift({
+            lineno: 7,
             filename: __jade[0].filename
           });
           buf.push('<button id="bidButton" class="btn btn-success">');
@@ -166,7 +209,7 @@ define(function() {
             filename: __jade[0].filename
           });
           __jade.unshift({
-            lineno: 2,
+            lineno: 7,
             filename: __jade[0].filename
           });
           buf.push("+ BID! ");
@@ -175,19 +218,19 @@ define(function() {
           buf.push("</button>");
           __jade.shift();
           __jade.unshift({
-            lineno: 4,
+            lineno: 9,
             filename: __jade[0].filename
           });
           buf.push("<br/>");
           __jade.shift();
           __jade.unshift({
-            lineno: 5,
+            lineno: 10,
             filename: __jade[0].filename
           });
           buf.push("<br/>");
           __jade.shift();
           __jade.unshift({
-            lineno: 5,
+            lineno: 10,
             filename: __jade[0].filename
           });
           buf.push('<div id="chart_container">');
@@ -196,7 +239,7 @@ define(function() {
             filename: __jade[0].filename
           });
           __jade.unshift({
-            lineno: 6,
+            lineno: 11,
             filename: __jade[0].filename
           });
           buf.push('<div id="chart">');
@@ -208,7 +251,7 @@ define(function() {
           buf.push("</div>");
           __jade.shift();
           __jade.unshift({
-            lineno: 7,
+            lineno: 12,
             filename: __jade[0].filename
           });
           buf.push('<div id="timeline">');
@@ -220,7 +263,7 @@ define(function() {
           buf.push("</div>");
           __jade.shift();
           __jade.unshift({
-            lineno: 8,
+            lineno: 13,
             filename: __jade[0].filename
           });
           buf.push('<div id="slider">');

@@ -13,6 +13,7 @@ shared =
   auction:
     title: 'Apple iPhone 4S 16GB - White'
     watchedBy: 23
+    highBid: 70.00
     seller: 
       name: 'Contra'
       rating: 479
